@@ -1,0 +1,59 @@
+create table Client
+(
+    id                    int auto_increment
+        primary key,
+    createDatetime        datetime                not null comment 'Дата создания записи',
+    createPerson_id       int                     null comment 'Автор записи {Person}',
+    modifyDatetime        datetime                not null comment 'Дата изменения записи',
+    modifyPerson_id       int                     null comment 'Автор изменения записи {Person}',
+    deleted               tinyint(1)   default 0  not null comment 'Отметка удаления записи',
+    lastName              varchar(30)             not null comment 'Фамилия',
+    firstName             varchar(30)             not null comment 'Имя',
+    patrName              varchar(64)             not null comment 'Отчество',
+    birthDate             date                    not null comment 'Дата рождения',
+    birthTime             time                    not null comment 'Время рождения',
+    sex                   tinyint                 not null comment 'Пол (0-неопределено, 1-М, 2-Ж)',
+    SNILS                 char(11)                not null comment 'СНИЛС',
+    bloodType_id          int                     null comment 'Группа крови{rbBloodType}',
+    bloodDate             date                    null comment 'Дата установления группы крови',
+    bloodNotes            tinytext                not null comment 'Примечания к группе крови',
+    growth                varchar(16)             not null comment 'Рост при рождении',
+    weight                varchar(16)             not null comment 'Вес при рождении',
+    embryonalPeriodWeek   varchar(16)             not null comment 'Неделя эмбрионального периода(в которую рожден пациент)',
+    birthPlace            varchar(120) default '' not null comment 'Место рождения',
+    diagNames             varchar(64)             not null comment 'Коды диагнозов',
+    chartBeginDate        date                    null comment 'Дата начала ведения карты',
+    rbInfoSource_id       int                     null comment 'Источник информации {rbInfoSource}',
+    notes                 tinytext                not null comment 'Примечания',
+    IIN                   varchar(15)             null comment 'ИИН',
+    isConfirmSendingData  tinyint                 null comment 'Флаг отвечающий за согласие на передачу данных (i3093)',
+    isUnconscious         tinyint(1)   default 0  null comment 'Флаг поступившего без сознания',
+    hasImplants           tinyint(1)   default 0  null comment 'Отметка о наличии имплантантов (i4273)',
+    hasProsthesis         tinyint(1)   default 0  null comment 'Отметка о наличии протезов (i4273)',
+    lastExportDatetime    datetime                null comment 'Дата-время последней выгрузки прикрепленного населения',
+    filial                int(10)                 null comment 'rbFilials.id Филиал, в котором было установлено значение Client.filial. NULL для всех новых клиентов после обновления, -1 для всех до обновления',
+    inn                   varchar(10)             null comment 'ИНН клиента',
+    transfusion_anamnesis text                    null comment 'Трансфузионный анамнез',
+    obstetric_anamnesis   text                    null comment 'Акушерский анамнез',
+    IEMK_guid             varchar(20)             null,
+    constraint Client_bloodType_id
+        foreign key (bloodType_id) references rbBloodType (id)
+            on delete set null,
+    constraint Client_rbInfoSource_id
+        foreign key (rbInfoSource_id) references rbInfoSource (id)
+            on delete set null,
+    constraint client_ibfk_2
+        foreign key (modifyPerson_id) references Person (id)
+)
+    comment 'Главная запись пациента';
+
+
+
+SELECT CONCAT(lastName, ' ', firstName, ' ' , patrName) AS 'ФИО пациента', 
+CASE WHEN sex = 1 THEN 'M'
+WHEN sex = 2 THEN 'Ж'
+ELSE 'не определено'
+END AS 'ПОЛ',
+birthDate AS 'Дата рождения'
+FROM Client
+WHERE lastName='Иванов' AND firstName='Иван';
