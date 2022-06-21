@@ -1,4 +1,4 @@
-https://www.w3schools.com/sql/
+[w3schools](https://www.w3schools.com/sql/)
 
 https://sqlzoo.net/wiki/SQL_Tutorial
 
