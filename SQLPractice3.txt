@@ -64,3 +64,22 @@ LIMIT 2;
 SELECT name, city, (DATEDIFF(date_last, date_first) + 1 ) AS  Длительность FROM trip
 WHERE city NOT IN ('Москва' , 'Санкт-Петербург')
 ORDER BY Длительность desc, city desc;
+
+
+# Вывести информацию о командировках сотрудника(ов), которые были самыми короткими по времени.
+ В результат включить столбцы name, city, date_first, date_last
+ 
+SELECT name, city, date_first, date_last from trip
+WHERE (DATEDIFF(date_last, date_first) + 1) IN (SELECT MIN(DATEDIFF(date_last, date_first) + 1) from trip);
+
+
+#Вывести информацию о командировках, начало и конец которых относятся к одному месяцу (год может быть любой).
+ В результат включить столбцы name, city, date_first, date_last. Строки отсортировать сначала  в алфавитном порядке по названию города,
+ а затем по фамилии сотрудника
+
+SELECT name, city, date_first, date_last FROM trip
+WHERE MONTH(date_first) = MONTH(date_last)
+ORDER BY city, name;
+
+
+#
