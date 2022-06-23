@@ -4,3 +4,8 @@ SELECT DISTINCT city, (SELECT count(city)) AS Количество From trip
 GROUP BY city
 ORDER BY Количество DESC
 LIMIT 2;
+
+-- комментарий одной строкой
+/* комментарий несколько строк
+еще одна строка
+и еще*/
