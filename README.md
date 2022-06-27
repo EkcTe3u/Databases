@@ -1,8 +1,6 @@
 # SQL
-
-```
 my sql experience will be here
-```
+
 ## sites for learning
 
 - [w3schools](https://www.w3schools.com/sql/)
