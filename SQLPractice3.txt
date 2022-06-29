@@ -1,6 +1,6 @@
 
 trip_id				name					city					per_diem		date_first	date_last
-INT PRIMARY KEY 	VARCHAR(30)				VARCHAR(25)		DECIMAL(8,2)	   DATЕ		DATE
+INT PRIMARY KEY 	VARCHAR(30)				VARCHAR(25)		DECIMAL(8,2)	             DATЕ		DATE
  AUTO_INCREMENT	
  
 1			Баранов П.Е.  			Москва					700				2020-01-12	2020-01-17
