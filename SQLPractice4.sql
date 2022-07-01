@@ -66,5 +66,21 @@ Having count(violation)>1
 ORDER by name, number_plate, violation;
 
 
+В таблице fine увеличить в два раза сумму неоплаченных штрафов для отобранных на предыдущем шаге записей.
+/*
+В таблице fine увеличить в два раза сумму неоплаченных штрафов для отобранных на предыдущем шаге записей.*/
+
+UPDATE fine,(
+    SELECT	name, number_plate, violation
+    FROM fine
+    group by  1, 2, 3
+    having count(3)>=2
+    order by 1,2,3) as new
+SET sum_fine = IF(date_payment is NULL,sum_fine*2,sum_fine)
+WHERE fine.name = new.name;
+
+select * from fine;
+
+
 
 /**/
