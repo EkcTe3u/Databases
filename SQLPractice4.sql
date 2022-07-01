@@ -56,4 +56,15 @@ WHERE f.violation = tv.violation AND f.sum_fine IS NULL;
 
 
 
+/*Вывести фамилию, номер машины и нарушение только для тех водителей, которые на одной машине нарушили одно и то же правило   два и более раз.
+ При этом учитывать все нарушения, независимо от того оплачены они или нет. Информацию отсортировать в алфавитном порядке,
+ сначала по фамилии водителя, потом по номеру машины и, наконец, по нарушению*/
+ 
+SELECT name, number_plate, violation FROM fine
+GROUP BY name, number_plate, violation
+Having count(violation)>1
+ORDER by name, number_plate, violation;
+
+
+
 /**/
