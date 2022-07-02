@@ -95,3 +95,7 @@ WHERE date_violation < '2020-02-01 00:00:00';
 CREATE TABLE back_payment as
 (SELECT name, number_plate, violation, sum_fine, date_violation From fine
  Where date_payment is NULL);
+ 
+ 
+ 
+ /**/
