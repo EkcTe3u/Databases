@@ -66,6 +66,7 @@ Having count(violation)>1
 ORDER by name, number_plate, violation;
 
 
+
 В таблице fine увеличить в два раза сумму неоплаченных штрафов для отобранных на предыдущем шаге записей.
 /*
 В таблице fine увеличить в два раза сумму неоплаченных штрафов для отобранных на предыдущем шаге записей.*/
@@ -79,8 +80,18 @@ UPDATE fine,(
 SET sum_fine = IF(date_payment is NULL,sum_fine*2,sum_fine)
 WHERE fine.name = new.name;
 
-select * from fine;
+
+
+/*Удалить из таблицы fine информацию о нарушениях, совершенных раньше 1 февраля 2020 года. */
+
+DELETE FROM fine
+WHERE date_violation < '2020-02-01 00:00:00';
 
 
 
-/**/
+/*Создать новую таблицу back_payment, куда внести информацию о неоплаченных штрафах (Фамилию и инициалы водителя, номер машины, нарушение, сумму штрафа  и  дату нарушения) из таблицы fine*/
+
+
+CREATE TABLE back_payment as
+(SELECT name, number_plate, violation, sum_fine, date_violation From fine
+ Where date_payment is NULL);
