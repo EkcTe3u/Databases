@@ -10,10 +10,11 @@ my sql experience will be here
 - [sql-ex](https://www.sql-ex.ru/)
 
 - [курс на stepik](https://stepik.org/course/63054/syllabus) 
-  - [text file part 1](https://stepik.org/media/attachments/course/63054/SQL_1.pdf)
+  - [text file part 1 RU](https://stepik.org/media/attachments/course/63054/SQL_1.pdf)
 
 - [html5css](https://html5css.ru/sql/default.php)
 
 - [sql-tutorial Ru](http://www.sql-tutorial.ru/ru/book_simple_select_statement/page1.html) 
 
 - [hackerrank](https://www.hackerrank.com/)
+- [sql-academy](https://sql-academy.org/ru)
