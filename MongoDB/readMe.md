@@ -1,0 +1,2 @@
+- [20 minute base course](https://www.youtube.com/watch?v=LNvmI8a9jwY)
+- [ MongoDB Manual](https://www.mongodb.com/docs/manual/tutorial/getting-started/)
