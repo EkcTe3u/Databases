@@ -18,3 +18,4 @@ my sql experience will be here
 
 - [hackerrank](https://www.hackerrank.com/)
 - [sql-academy](https://sql-academy.org/ru)
+- [20 minutes course](https://www.youtube.com/watch?v=IK6e1SFCdow)
