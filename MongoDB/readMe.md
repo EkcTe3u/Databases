@@ -1,2 +1,3 @@
 - [20 minute base course](https://www.youtube.com/watch?v=LNvmI8a9jwY)
 - [ MongoDB Manual](https://www.mongodb.com/docs/manual/tutorial/getting-started/)
+- [36 most important GraphQL concepts](https://36-concepts-graphql.netlify.app/)
