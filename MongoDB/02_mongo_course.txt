@@ -40,3 +40,70 @@ db.cars.update({
 db.cars.remove({
     name: 'Ford'
 })
+
+//добавление через цикл
+
+for(let i=0; i<10; i++) {db.cars.insert({'x': i})}
+
+
+db.student.insert({
+    name: 'Joe',
+    undergrad: true,
+    units: 9,
+    classes: ['geography', 'math', 'journalism']
+})
+
+db.student.insert({
+    name: 'Jane',
+    undergrad: false,
+    units: 12,
+    classes: ['geography', 'science', 'journalism', 'history']
+})
+
+db.student.insert({
+    name: 'Kevin',
+    undergrad: true,
+    units: 3,
+    classes: ['geography']
+})
+
+db.student.insert({
+    name: 'Rachel',
+    undergrad: false,
+    units: 6,
+    classes: ['geography', 'history']
+})
+
+//поиск
+
+db.student.find({
+    name: "Rachel"
+})
+
+// больше чем 6
+
+db.student.find({
+    units: {
+        $gt:6
+    }
+})
+
+//меньше чем 6
+
+db.student.find({
+    units: {
+        $lt:6
+    }
+})
+
+//поиск всех студентов по предмету история
+
+db.student.find({classes: {$in: ['history']}})
+
+//сортировка в порядке возростания предеметов, -1 в порядке убывания количества предеметов
+
+db.student.find({classes: {$in: ['history']}}).sort({units:1})
+
+// лимит по количеству остортированных данных, первые добавление
+
+db.student.find().sort({name:1}).limit(2)
