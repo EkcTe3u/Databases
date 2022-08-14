@@ -1,0 +1,42 @@
+https://www.udemy.com/course/mongodb-essentials/learn/lecture/4322336#overview
+
+//создание коллекции
+
+db.createCollection("cars")
+
+//
+show collections
+
+//добавление документа
+
+db.cars.insert({
+    name: 'honda',
+    make: 'accord',
+    year: 2010
+})
+
+//обновление информации
+
+db.cars.update({
+    name: 'honda'
+},
+{$set: {
+    name: 'Ford'
+}
+})
+
+//добавление информации по параметру
+
+db.cars.update({
+    name: 'Ford'
+},
+{$set: {
+    transmission: 'automatic'
+}
+}, {$upsert: true})
+
+//удаление документа по параметру
+
+db.cars.remove({
+    name: 'Ford'
+})
