@@ -37,3 +37,31 @@ query($id: ID){
     }
   }
 }
+
+// выводим все фильмы режиссера
+
+query($id: ID){
+  director(id: $id){
+    id
+    name
+    movies {
+      name
+    }
+  }
+}
+
+// полный список фильмов или полный список режиссеров
+
+query{
+  movies {
+    name
+    genre
+  }
+}
+
+query{
+  directors {
+    name
+    age
+  }
+}
