@@ -1,4 +1,5 @@
 - [youtube course](https://www.youtube.com/watch?v=kZs7CXrtT-s&list=PLNkWIWHIRwMF2sVLwzRef0Cu5kzAOeRcu&index=1)
+- [автор курса на Github](https://github.com/YauhenKavalchuk/graphql)
 
 ### Используемые ресурсы и инструменты:
 - [Atom (Редактор кода)](https://atom.io/)
