@@ -93,3 +93,59 @@ mutation ($name: String, $genre: String, $directorID: ID){
   "genre": "test genre",
   "directorID": 2
 }
+
+//удаление режиссера, фильма
+
+mutation ($id: ID!){
+  deleteDirector(id: $id){
+    name
+  }
+}
+ id берем из бд
+{
+  "id": "63076813452727b43d76f8f7"
+}
+
+film
+
+mutation ($id: ID!){
+  deleteMovie(id: $id){
+    name
+  }
+}
+
+{
+  "id": "63076833452727b43d76f8f9"
+}
+
+
+//обновление данных режиссера, фильма
+
+mutation ($id: ID!, $name: String!, $age: Int!){
+  updateDirector (id: $id, name: $name, age: $age){
+    name
+    age
+  }
+}
+
+{
+  "id": "630690a2f014a51775c2aa58",
+  "name": "Quentin Tarantino",
+  "age": 552
+}
+
+film
+
+mutation ($id: ID!, $name: String!, $genre: String!, $directorId: ID){
+  updateMovie (id: $id, name: $name, genre: $genre, directorId: $directorId){
+    name
+    genre
+  }
+}
+
+{
+  "id": "630692b7f014a51775c2aa5c",
+  "name": "Pulp Fiction2",
+  "genre": "Crime2",
+  "directorId": "630690a2f014a51775c2aa58"
+}
