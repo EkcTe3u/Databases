@@ -65,3 +65,16 @@ query{
     age
   }
 }
+
+// мутация на добавление нового директора, фильма
+
+mutation ($name: String, $age: Int){
+  addDirector (name: $name, age: $age){
+    name
+    age
+  }
+}
+{
+  "name": "test",
+  "age": 21
+}
