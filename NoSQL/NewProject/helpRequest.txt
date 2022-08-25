@@ -78,3 +78,18 @@ mutation ($name: String, $age: Int){
   "name": "test",
   "age": 21
 }
+
+film
+
+mutation ($name: String, $genre: String, $directorID: ID){
+  addMovie (name: $name, genre: $genre, directorId: $directorID){
+    name
+    genre
+  }
+}
+
+{
+  "name": "test",
+  "genre": "test genre",
+  "directorID": 2
+}
