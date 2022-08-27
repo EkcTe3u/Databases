@@ -1,0 +1,7 @@
+терминал
+
+use db - создание базы
+
+ db.createCollection("users") создание коллекции с именем users
+ 
+ db.articles.drop() удаление коллекции
