@@ -8,6 +8,3 @@ use db - создание базы
  
  db.users.insertOne({"name":"Andrey", "e-mail":"test@gmail.ru", "age": 37}) добавление в коллекцию
  
- db.users.insertMany([]) - добавление нескольких через массив
- 
- {"name":"Andrey", "e-mail":"test@gmail.ru", "age": 37}, {"name":"Andrey", "e-mail":"test@gmail.ru", "age": 37}, {"name":"Andrey", "e-mail":"test@gmail.ru", "age": 37}
